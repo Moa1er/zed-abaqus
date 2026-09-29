@@ -4,6 +4,16 @@
 ** include file with quoted path containing spaces
 *Include, input="C:\FEA Models\Components\sub_mesh.inc"
 *include, input='relative/path/with spaces.incl'
+*Include, input=C:\Program Files (x86)\simulation\sub_mesh.inc
+**
+** heading and material with parentheses, brackets, and symbols
+*Heading
+ specimen #1 (test @ 25C) [series-A]
+*Material, name=Steel(AISI304)
+*Elastic
+210000.0, 0.3
+*Surface, name=MasterSurf, type=ELEMENT
+1, S1
 **
 ** keyword parameter continuation lines
 *Solid Section, elset=AllElements,

@@ -67,11 +67,29 @@ function runTests() {
     const highlightsQuery = path.join(repoRoot, 'languages', 'abaqus', 'highlights.scm');
     const outlineQuery = path.join(repoRoot, 'languages', 'abaqus', 'outline.scm');
 
-    run(`npx tree-sitter-cli query "${highlightsQuery}" "${sample}"`, treeSitterDir);
+    const hlOut = run(`npx tree-sitter-cli query "${highlightsQuery}" "${path.join(repoRoot, 'examples', 'assembly_multistep.inp')}"`, treeSitterDir);
+    if (!hlOut.includes('PreloadStep') || !hlOut.includes('LoadStep')) {
+      throw new Error('expected step keywords to be matched in highlights query');
+    }
     console.log('highlights query compiled and matched successfully');
 
-    run(`npx tree-sitter-cli query "${outlineQuery}" "${sample}"`, treeSitterDir);
+    const outlineOut = run(`npx tree-sitter-cli query "${outlineQuery}" "${path.join(repoRoot, 'examples', 'assembly_multistep.inp')}"`, treeSitterDir);
+    if (!outlineOut.includes('PlatePart') || !outlineOut.includes('MainAssembly') || !outlineOut.includes('PreloadStep')) {
+      throw new Error('expected parts, assembly and steps in outline query output');
+    }
     console.log('outline query compiled and matched successfully');
+
+    // test special characters in parameters and heading titles
+    console.log('testing edge case syntax with special characters...');
+    const edgeCaseSnippet = '*Heading\nspecimen #1 (test @ 25C) [series-A]\n*Material, name=Steel(AISI304)\n*Include, input=C:\\Program Files (x86)\\submodel.inp\n';
+    const edgeTemp = path.join(treeSitterDir, 'temp_edge.inp');
+    fs.writeFileSync(edgeTemp, edgeCaseSnippet, 'utf8');
+    const parseOut = run(`npx tree-sitter-cli parse temp_edge.inp`, treeSitterDir);
+    fs.unlinkSync(edgeTemp);
+    if (parseOut.includes('ERROR')) {
+      throw new Error('unexpected ERROR in edge case parsing: ' + parseOut);
+    }
+    console.log('edge case syntax parsed with zero errors');
   } catch (err) {
     console.error('query evaluation failed:\n' + err.stdout);
     passedAll = false;

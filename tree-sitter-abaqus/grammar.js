@@ -247,7 +247,8 @@ module.exports = grammar({
       /[+-]?(\d+(\.\d*)?|\.\d+)([eEdD][+-]?\d+)?/
     ),
 
-    text: $ => token(/[a-zA-Z0-9_\-\.\/\\:]+([ \t]+[a-zA-Z0-9_\-\.\/\\:]+)*/),
+    // unquoted text fields allowing identifiers, paths, and descriptive expressions
+    text: $ => token(/[a-zA-Z0-9_\-\.\/\\:\(\)#\[\]\{\}\+@%&~^\$!;\?]+([ \t]+[a-zA-Z0-9_\-\.\/\\:\(\)#\[\]\{\}\+@%&~^\$!;\?]+)*/),
 
     // data lines contain comma-delimited numeric or text fields
     data_line: $ => seq(

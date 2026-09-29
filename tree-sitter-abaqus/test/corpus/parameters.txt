@@ -57,3 +57,26 @@ Quoted string parameters and paths with spaces
         name: (parameter_name)
         value: (parameter_value
           (string))))))
+
+===
+Unquoted parameters with parentheses and special characters
+===
+*Material, name=Steel(AISI304)
+*Include, input=C:\Program Files (x86)\model.inp
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))))
+
