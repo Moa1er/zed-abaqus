@@ -91,7 +91,7 @@ node test/test_runner.js
 ```
 
 This test suite executes:
-- 11 tree-sitter corpus tests verifying syntax structures
+- 12 tree-sitter corpus tests verifying syntax structures
 - Clean parse validation on all representative example decks
 - Verification of highlight and outline queries against real decks
 - Parse resilience tests during incomplete editing states
