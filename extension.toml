@@ -8,5 +8,5 @@ repository = "https://github.com/Moa1er/zed-abaqus"
 
 [grammars.abaqus]
 repository = "https://github.com/Moa1er/zed-abaqus"
-rev = "HEAD"
+rev = "3d3357c20738dfb087b2a30372df1979e8746a20"
 path = "tree-sitter-abaqus"
