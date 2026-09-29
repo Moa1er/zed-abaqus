@@ -1,0 +1,82 @@
+===
+Basic deck with nodes and elements
+===
+*Heading
+*Node
+1, 0.0, 0.0, 0.0
+2, 1.0, 0.0, 0.0
+*Element, type=C3D8, elset=all
+1, 1, 2, 3, 4, 5, 6, 7, 8
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))
+    (data_line
+      (number)
+      (number)
+      (number)
+      (number))
+    (data_line
+      (number)
+      (number)
+      (number)
+      (number)))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (data_line
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number))))
+
+===
+Case insensitive and multiword keywords
+===
+*SOLID SECTION, ELSET=Part-1-1, MATERIAL=Steel
+*shell section, elset=Shells, material=Aluminum
+*co-execution
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))))

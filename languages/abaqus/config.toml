@@ -1,0 +1,6 @@
+name = "Abaqus"
+grammar = "abaqus"
+path_suffixes = ["inp", "inc", "incl"]
+line_comments = ["** "]
+tab_size = 4
+hard_tabs = false

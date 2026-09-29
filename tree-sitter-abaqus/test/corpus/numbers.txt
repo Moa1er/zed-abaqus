@@ -1,0 +1,20 @@
+===
+Signed numbers decimals and exponents
+===
+*Data
+1, -2, +3, 1., .01, -1.0, 1.e-15, 1.0E+02, 1.0D-03
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))
+    (data_line
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number)
+      (number))))

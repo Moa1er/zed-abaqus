@@ -1,0 +1,24 @@
+===
+Comment lines and commented solver lines
+===
+**
+** abaqus test comment
+** Section: Section-1
+**Solid Section, elset=all, orientation=Ori-1, material=Material-1
+*Heading
+** another comment
+---
+(source_file
+  (comment_line
+    (comment))
+  (comment_line
+    (comment))
+  (comment_line
+    (comment))
+  (comment_line
+    (comment))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))
+    (comment_line
+      (comment))))

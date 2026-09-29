@@ -1,0 +1,59 @@
+===
+Flags and key-value parameters
+===
+*Static
+*Boundary, fixed
+*Output, field, time interval=0.01, TIME MARKS=No
+*Controls, parameters=time incrementation
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (number)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))))
+
+===
+Quoted string parameters and paths with spaces
+===
+*Include, input="C:\simulation models\mesh deck.inp"
+*Material, name='Material One'
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (string)))))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (string))))))

@@ -1,0 +1,23 @@
+# dependencies and logs
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# tree-sitter build output
+target/
+build/
+*.o
+*.obj
+*.wasm
+
+# test and benchmark temporaries
+temp_*
+benchmark_*
+*.tmp
+
+# editor and os files
+.DS_Store
+Thumbs.db
+*.swp
+*~

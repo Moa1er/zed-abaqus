@@ -1,0 +1,46 @@
+===
+Assembly part and instance blocks
+===
+*Part, name=Part-1
+*Node
+1, 0.0, 0.0, 0.0
+*End Part
+*Assembly, name=Assembly-1
+*Instance, name=Inst-1, part=Part-1
+*End Instance
+*End Assembly
+---
+(source_file
+  (part_block
+    (part_keyword_line
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (keyword_block
+      (keyword_line
+        name: (keyword_name))
+      (data_line
+        (number)
+        (number)
+        (number)
+        (number)))
+    (end_part_keyword_line))
+  (assembly_block
+    (assembly_keyword_line
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (instance_block
+      (instance_keyword_line
+        (parameter
+          name: (parameter_name)
+          value: (parameter_value
+            (text)))
+        (parameter
+          name: (parameter_name)
+          value: (parameter_value
+            (text))))
+      (end_instance_keyword_line))
+    (end_assembly_keyword_line)))

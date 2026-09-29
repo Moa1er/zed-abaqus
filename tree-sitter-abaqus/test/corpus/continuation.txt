@@ -1,0 +1,48 @@
+===
+Keyword parameter continuation
+===
+*Solid Section, elset=all,
+material=Material-1
+,
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (data_line)))
+
+===
+Step keyword continuation
+===
+*Step, name=Step-1, nlgeom=YES,
+inc=10000
+*Static
+*End Step
+---
+(source_file
+  (step_block
+    (step_keyword_line
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (number))))
+    (keyword_block
+      (keyword_line
+        name: (keyword_name)))
+    (end_step_keyword_line)))

@@ -1,0 +1,21 @@
+===
+Unfamiliar keywords parse cleanly
+===
+*UnknownKeyword, customparam=123
+10, 20
+*AnotherKeyword
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (number))))
+    (data_line
+      (number)
+      (number)))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))))

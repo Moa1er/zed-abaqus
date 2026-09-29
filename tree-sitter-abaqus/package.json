@@ -1,0 +1,31 @@
+{
+  "name": "tree-sitter-abaqus",
+  "version": "0.1.0",
+  "description": "abaqus input deck grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "tree-sitter",
+    "abaqus",
+    "fea",
+    "parser"
+  ],
+  "author": "Moa1er",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "^2.20.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.24.0"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.inp",
+      "file-types": [
+        "inp",
+        "inc",
+        "incl"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ]
+}

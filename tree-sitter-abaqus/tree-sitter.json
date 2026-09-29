@@ -1,0 +1,35 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "abaqus",
+      "camelcase": "Abaqus",
+      "scope": "source.inp",
+      "path": ".",
+      "file-types": ["inp", "inc", "incl"],
+      "highlights": "queries/highlights.scm",
+      "injection-regex": "^(inp|abaqus)$"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "abaqus grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "Moa1er"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/Moa1er/zed-abaqus"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": false,
+    "node": true,
+    "python": false,
+    "rust": true,
+    "swift": false
+  }
+}

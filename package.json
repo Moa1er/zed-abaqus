@@ -1,0 +1,20 @@
+{
+  "name": "zed-abaqus",
+  "version": "0.1.0",
+  "description": "Abaqus input file support for Zed editor",
+  "scripts": {
+    "test": "node test/test_runner.js",
+    "generate": "cd tree-sitter-abaqus && npx tree-sitter-cli generate",
+    "corpus": "cd tree-sitter-abaqus && npx tree-sitter-cli test"
+  },
+  "keywords": [
+    "zed",
+    "zed-extension",
+    "abaqus",
+    "finite-element",
+    "fea",
+    "tree-sitter"
+  ],
+  "author": "Moa1er",
+  "license": "MIT"
+}

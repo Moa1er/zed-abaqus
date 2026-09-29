@@ -1,0 +1,33 @@
+*heading
+ edge cases testing deck
+**
+** include file with quoted path containing spaces
+*Include, input="C:\FEA Models\Components\sub_mesh.inc"
+*include, input='relative/path/with spaces.incl'
+**
+** keyword parameter continuation lines
+*Solid Section, elset=AllElements,
+material=Rubber-Material-1
+,
+**
+** numerical edge cases: signed values, leading dots, and exponents
+*Node
+1, 1., .01, -.01
+2, 1.e-15, 2.5E+03, -3.0D-02
+3, +100, -200, 0
+**
+** data line with leading, middle, and trailing empty fields
+*Controls, reset
+*Controls, parameters=time incrementation
+, , , , , , , 20, , , 
+**
+** mixed-case keywords and multi-word keywords
+*sUrFaCe InTeRaCtIoN, name=ContactProperty-1
+*fRiCtIoN
+0.2,
+*Step, name=TestStep,
+nlgeom=YES,
+inc=2000
+*Static
+.01, 1., 1.e-12, .1
+*End Step

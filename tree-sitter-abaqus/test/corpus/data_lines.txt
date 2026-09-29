@@ -1,0 +1,44 @@
+===
+Data lines with empty fields and standalone comma
+===
+*Solid Section, elset=all, material=Material-1
+,
+*Controls, parameters=time incrementation
+, , , , , , , 20, , ,
+*Boundary
+S1,1,1
+S2,2,2
+---
+(source_file
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text)))
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (data_line))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name)
+      (parameter
+        name: (parameter_name)
+        value: (parameter_value
+          (text))))
+    (data_line
+      (number)))
+  (keyword_block
+    (keyword_line
+      name: (keyword_name))
+    (data_line
+      (text)
+      (number)
+      (number))
+    (data_line
+      (text)
+      (number)
+      (number))))
