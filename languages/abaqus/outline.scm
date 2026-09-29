@@ -8,10 +8,6 @@
       (#match? @_pn "(?i)^name$")
       value: (parameter_value) @name))) @item
 
-; fallback for step without name
-(step_block
-  (step_keyword_line) @name) @item
-
 ; part definitions with name parameter
 (part_block
   (part_keyword_line
@@ -20,10 +16,7 @@
       (#match? @_pn "(?i)^name$")
       value: (parameter_value) @name))) @item
 
-(part_block
-  (part_keyword_line) @name) @item
-
-; assembly definitions
+; assembly definitions with name parameter
 (assembly_block
   (assembly_keyword_line
     (parameter
@@ -31,19 +24,13 @@
       (#match? @_pn "(?i)^name$")
       value: (parameter_value) @name))) @item
 
-(assembly_block
-  (assembly_keyword_line) @name) @item
-
-; part instances
+; part instances with name parameter
 (instance_block
   (instance_keyword_line
     (parameter
       name: (parameter_name) @_pn
       (#match? @_pn "(?i)^name$")
       value: (parameter_value) @name))) @item
-
-(instance_block
-  (instance_keyword_line) @name) @item
 
 ; materials with name parameter
 (keyword_block
