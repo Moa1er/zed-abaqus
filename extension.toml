@@ -6,6 +6,10 @@ authors = ["Moa1er <https://github.com/Moa1er>"]
 description = "Abaqus input file (.inp, .inc, .incl) support for Zed"
 repository = "https://github.com/Moa1er/zed-abaqus"
 
+[lib]
+kind = "Rust"
+version = "0.7.0"
+
 [grammars.abaqus]
 repository = "https://github.com/Moa1er/zed-abaqus"
 rev = "85037ad07cd39dbb4f043146302d139815384c96"
