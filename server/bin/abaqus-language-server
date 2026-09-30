@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+// executable entry point for abaqus language server
+require('../src/index.js');

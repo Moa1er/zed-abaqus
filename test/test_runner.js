@@ -172,6 +172,17 @@ function runTests() {
     fs.unlinkSync(benchPath);
   }
 
+  // 7. run language server protocol tests
+  console.log('running language server protocol tests...');
+  try {
+    const lspOut = run('node test/server.test.js && node test/stdio.test.js', path.join(repoRoot, 'server'));
+    console.log(lspOut.trim());
+    console.log('language server tests passed successfully');
+  } catch (err) {
+    console.error('language server tests failed:\n' + (err.stdout || '') + '\n' + (err.stderr || ''));
+    passedAll = false;
+  }
+
   if (passedAll) {
     console.log('all checks passed successfully');
     process.exit(0);

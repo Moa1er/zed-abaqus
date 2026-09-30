@@ -82,6 +82,42 @@ Type any prefix in an Abaqus buffer to trigger completions:
 - output: Field output request for node and element variables
 - include: Include file reference with quoted path
 
+## Language server protocol (LSP)
+
+The extension includes a built-in Language Server Protocol implementation in [server/](file:///c:/github/zed-abaqus/server) providing real-time IntelliSense for Abaqus input decks:
+
+- Autocompletion: keyword completion on typing *, parameter completion on typing comma, and allowed choices on typing equals (such as nlgeom=YES/NO).
+- Workspace symbol indexing: indexes materials, node sets, element sets, steps, parts, instances, amplitudes, surfaces, orientations, and surface interactions across the workspace.
+- Go-to-definition: jumping to declarations of sets, materials, parts, instances, and external include files via F12.
+- Rich hover documentation: keyword descriptions, parameter requirements, data line syntax, and symbol definitions.
+- Diagnostics and validation: real-time warnings for unclosed blocks (*Step without *End Step), missing required parameters, invalid enum choices, duplicate names, and non-existent include files.
+
+To configure the language server in Zed, add this to your Zed settings.json:
+
+```json
+{
+  "languages": {
+    "Abaqus": {
+      "language_servers": [
+        "abaqus-language-server"
+      ]
+    }
+  },
+  "lsp": {
+    "abaqus-language-server": {
+      "binary": {
+        "path": "node",
+        "arguments": [
+          "C:/github/zed-abaqus/server/src/index.js"
+        ]
+      }
+    }
+  }
+}
+```
+
+See [server/README.md](file:///c:/github/zed-abaqus/server/README.md) for full details.
+
 ## Testing and verification
 
 To run all automated checks:
@@ -96,6 +132,7 @@ This test suite executes:
 - Verification of highlight and outline queries against real decks
 - Parse resilience tests during incomplete editing states
 - Performance benchmark on a 25,000 node generated mesh
+- Language server protocol unit and stdio integration tests
 
 To run the tree-sitter corpus tests directly:
 
