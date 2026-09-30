@@ -36,17 +36,32 @@ function getCompletions(workspace, uri, position) {
   if (context.kind === 'keyword') {
     const rawSearch = context.prefix.trim().toUpperCase();
     const query = rawSearch.startsWith('*') ? rawSearch.slice(1) : rawSearch;
+    const line = context.line || '';
+    const starIdx = line.lastIndexOf('*', position.character);
+    const startCol = starIdx >= 0 ? starIdx : position.character;
+    const textEditRange = {
+      start: { line: position.line, character: startCol },
+      end: position
+    };
 
     for (const [kwName, kw] of Object.entries(keywords)) {
       const bareName = kwName.slice(1);
-      if (bareName.includes(query) || query === '') {
+      const starts = bareName.startsWith(query);
+      const inc = bareName.includes(query);
+      if (starts || inc || query === '') {
         items.push({
           label: kwName,
           kind: CompletionItemKind.Keyword,
           detail: 'Abaqus keyword',
+          filterText: bareName,
+          sortText: starts ? `0_${bareName}` : `1_${bareName}`,
           documentation: {
             kind: 'markdown',
             value: kw.description + (kw.dataLineFormat ? `\n\nData format: \`${kw.dataLineFormat}\`` : '')
+          },
+          textEdit: {
+            range: textEditRange,
+            newText: kwName
           },
           insertText: kwName
         });
@@ -59,13 +74,19 @@ function getCompletions(workspace, uri, position) {
   if (context.kind === 'parameter_name') {
     const kwDef = keywords[context.keyword];
     if (kwDef && kwDef.parameters) {
-      // detect already specified parameters on this line
-      const lineTokens = context.line.toLowerCase().split(',');
+      // detect already specified parameters on this line excluding current token
+      const beforeCursor = context.line.slice(0, position.character);
+      const chunks = beforeCursor.split(',');
+      chunks.pop(); // remove token currently being typed
+      const afterCursor = context.line.slice(position.character);
+      const afterChunks = afterCursor.split(',');
+      afterChunks.shift(); // remove remainder of current token
+
       const usedParams = new Set();
-      for (const tok of lineTokens) {
+      for (const tok of [...chunks, ...afterChunks]) {
         const eqIdx = tok.indexOf('=');
-        const key = (eqIdx >= 0 ? tok.slice(0, eqIdx) : tok).trim();
-        usedParams.add(key);
+        const key = (eqIdx >= 0 ? tok.slice(0, eqIdx) : tok).trim().toLowerCase();
+        if (key) usedParams.add(key);
       }
 
       for (const [paramName, param] of Object.entries(kwDef.parameters)) {
