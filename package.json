@@ -1,6 +1,6 @@
 {
   "name": "zed-abaqus",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Abaqus input file support for Zed editor",
   "scripts": {
     "test": "node test/test_runner.js",

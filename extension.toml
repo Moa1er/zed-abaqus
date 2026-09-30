@@ -1,6 +1,6 @@
 id = "abaqus"
 name = "Abaqus"
-version = "0.1.0"
+version = "0.2.0"
 schema_version = 1
 authors = ["Moa1er <https://github.com/Moa1er>"]
 description = "Abaqus input file (.inp, .inc, .incl) support for Zed"

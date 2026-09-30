@@ -1,6 +1,6 @@
 {
   "name": "abaqus-language-server",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Language server protocol implementation for Abaqus input decks",
   "main": "src/index.js",
   "bin": {
