@@ -24,11 +24,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: install server dependencies
+        working-directory: server
+        run: npm ci
+
       - name: verify tree-sitter generation
-        run: |
-          cd tree-sitter-abaqus
-          npx tree-sitter-cli generate
+        working-directory: tree-sitter-abaqus
+        run: npx tree-sitter-cli generate
 
       - name: run test suite
-        run: |
-          node test/test_runner.js
+        run: node test/test_runner.js

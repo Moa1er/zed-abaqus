@@ -174,8 +174,13 @@ function runTests() {
 
   // 7. run language server protocol tests
   console.log('running language server protocol tests...');
+  const serverDir = path.join(repoRoot, 'server');
+  if (!fs.existsSync(path.join(serverDir, 'node_modules'))) {
+    console.log('installing server dependencies...');
+    run('npm ci', serverDir);
+  }
   try {
-    const lspOut = run('node test/server.test.js && node test/stdio.test.js', path.join(repoRoot, 'server'));
+    const lspOut = run('node test/server.test.js && node test/stdio.test.js', serverDir);
     console.log(lspOut.trim());
     console.log('language server tests passed successfully');
   } catch (err) {

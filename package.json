@@ -2,6 +2,9 @@
   "name": "zed-abaqus",
   "version": "0.2.0",
   "description": "Abaqus input file support for Zed editor",
+  "workspaces": [
+    "server"
+  ],
   "scripts": {
     "test": "node test/test_runner.js",
     "generate": "cd tree-sitter-abaqus && npx tree-sitter-cli generate",
