@@ -10,3 +10,7 @@ repository = "https://github.com/Moa1er/zed-abaqus"
 repository = "https://github.com/Moa1er/zed-abaqus"
 rev = "85037ad07cd39dbb4f043146302d139815384c96"
 path = "tree-sitter-abaqus"
+
+[language_servers.abaqus-language-server]
+languages = ["Abaqus"]
+
