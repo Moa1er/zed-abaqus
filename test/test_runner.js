@@ -177,7 +177,7 @@ function runTests() {
   const serverDir = path.join(repoRoot, 'server');
   if (!fs.existsSync(path.join(serverDir, 'node_modules'))) {
     console.log('installing server dependencies...');
-    run('npm ci', serverDir);
+    run('npm install', serverDir);
   }
   try {
     const lspOut = run('node test/server.test.js && node test/stdio.test.js', serverDir);

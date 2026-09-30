@@ -26,7 +26,7 @@ jobs:
 
       - name: install server dependencies
         working-directory: server
-        run: npm ci
+        run: npm install
 
       - name: verify tree-sitter generation
         working-directory: tree-sitter-abaqus
